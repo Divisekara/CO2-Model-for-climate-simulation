@@ -17,25 +17,25 @@ clc,clear
 % source term f(t)
 
 %contants
-% d = 8.64;                       transfer time
-% u_1 = 4.95*10^2;
-% u_2 = 4.95*10^(-2);
-% v_s = 0.12;
-% v_d = 1.23;
-% w   = 10^(-3);
-% k1  = 2.19*10^(-4);
-% k2  = 6.12*10^(-5);
-% k3  = 0.997148;
+d = 8.64;                %transfer time
+u_1 = 4.95*10^2;
+u_2 = 4.95*10^(-2);
+v_s = 0.12;
+v_d = 1.23;
+w   = 10^(-3);
+k1  = 2.19*10^(-4);
+k2  = 6.12*10^(-5);
+k3  = 0.997148;
 
 %Time interval is thousand years agon and few thousand years ahead
-% t_interval = 1000:5000;
+t_interval = 1000:5000;
 
 %Initial Values at t = 1000
-% p = 1.00;
-% sigma_s = 2.01;
-% sigma_d = 2.23;
-% alpha_s = 2.20;
-% alpha_d = 2.26;
+p = 1.00;
+sigma_s = 2.01;
+sigma_d = 2.23;
+alpha_s = 2.20;
+alpha_d = 2.26;
 
 %%
 
@@ -51,7 +51,20 @@ clc,clear
 % c_s = (alpha_s - h_s)/2
 % p_s = k4 * h_s^2 /c_s
 
+%%  
+%Question number 1
+t=2;
+sourceFossilFuels(t)
 %%
+
+
+
+
+
+
+
+
+
 
 
 
