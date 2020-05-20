@@ -1,12 +1,8 @@
 clc,clear
 %%
-
 % A CO2 model for climate simulation
-
 %%
-
 %variables
-
 %%five principal variables
 % p =                         Partial pressure of carbo dioxide in the atmosphere
 % sigma_s =                   total dissolved carbon concentration in the shallow ocean
@@ -44,27 +40,19 @@ clc,clear
 %%
 
 %The rate of change of the five principal variables
-
 % p_derivative = (p_s - p)/(d) + f(t)/u_1
-
 % sigma_s_derivative = ( (sigma_d - sigma_s)*w - k1 - (p_s - p)/d*u_2)/v_s
-
 % sigma_d_derivative = ( k1 - (sigma_d - sigma_s)*w )/v_d
-
 % alpha_s_derivative = ((alpha_d - alpha_s)*w - k2)/v_s
-
 % alpha_d_derivative = (k2 - (alpha_d - alpha_s)*w)/v_d
 
-
 % The equlibrium between carbon dioxide and the corbonates 
-
 % h_s = (sigma_s - sqrt(sigma_s^2 - k3*alpha_s*(s*sigma_s - alpha_s)))/k3 
-
 % c_s = (alpha_s - h_s)/2
-
 % p_s = k4 * h_s^2 /c_s
 
 %%
+year_rate = [1000 1850 1950 1980 2050 2100 2120 2150 2225 2300 2500 5000 ; 0.0 0.0 1.0 4.0 8.0 10.0 10.5 10.0 3.5 2.0 0.0 0.0]
 
 
 
