@@ -16,22 +16,19 @@
 % d = transfer time
 % source term f(t)
 % u_1 = 
-% u_2 = 
+
 % v_s = 
 % v_d =
 % w = 
-% k1 = 
-% k2 = 
+% k1 
 
 %%
 
 % p_derivative = (p_s - p)/(d) + f(t)/u_1
+% sigma_s_derivative = ( (sigma_d - sigma_s)*w -k1)
 
-% sigma_s_derivative = ( (sigma_d - sigma_s)*w - k1 - (p_s - p)/d*u_2)/v_s
 
-% sigma_d_derivative = ( k1 - (sigma_d - sigma_s)*w )/v_d
 
-% alpha_s_derivative = ((alpha_d - alpha_s)*w - k2)
 
 
 %%
