@@ -32,7 +32,15 @@ clc,clear
 % k3  = 0.997148;
 
 %Time interval is thousand years agon and few thousand years ahead
-t_interval = fixed.Interval(1000) 
+% t_interval = 1000:5000;
+
+%Initial Values at t = 1000
+% p = 1.00;
+% sigma_s = 2.01;
+% sigma_d = 2.23;
+% alpha_s = 2.20;
+% alpha_d = 2.26;
+
 %%
 
 %The rate of change of the five principal variables
@@ -55,9 +63,6 @@ t_interval = fixed.Interval(1000)
 % c_s = (alpha_s - h_s)/2
 
 % p_s = k4 * h_s^2 /c_s
-
-
-
 
 %%
 
