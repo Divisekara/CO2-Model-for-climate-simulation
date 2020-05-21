@@ -1,4 +1,4 @@
-function [derivatives] = DEdef(I, D)
+function [derivatives] = DEdef(t, D)
     %Independent variable = t
     
     d = 8.64;                %transfer time

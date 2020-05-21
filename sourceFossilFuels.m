@@ -10,7 +10,7 @@ function[particular_rate] = sourceFossilFuels(particular_year)
     plot(years, rates, 'o', x, y),title('Source Term: Fossil Fuels'),xlabel('time [years, CE]'),ylabel('source term, f(t)'),set(gca,'XMinorTick','on','YMinorTick','on')
 
     if 1000<particular_year && particular_year<5000
-        particular_year
+        
         particular_rate = y(particular_year-1000);
     else
         particular_rate = 0;

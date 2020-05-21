@@ -54,8 +54,8 @@ alpha_d = 2.26;
 
 %%  
 %Question number 1
-%t=2;
-%f(t) = sourceFossilFuels(t);
+t=2;
+f(t) = sourceFossilFuels(t);
 %%
 domain = [1000 5000]; %
 
@@ -72,7 +72,6 @@ IC = [IC1, IC2, IC3, IC4,IC5]; %
 
 subplot(5,1,1);
 plot(IVsol, DVsol(:,1), 'k'),ylabel('p') % p
-hold on
 subplot(5,1,2);
 plot(IVsol, DVsol(:,2), 'r'),ylabel('sigma_s') % sigma_s
 subplot(5,1,3);
@@ -82,4 +81,4 @@ plot(IVsol, DVsol(:,4), 'g'),ylabel('alpha_s') % alpha_s
 subplot(5,1,5);
 plot(IVsol, DVsol(:,5), 'm'),ylabel('alpha_d'),xlabel('t-years') % alpha_d
 
-legend('p', 'sigma_s', 'sigma_d', 'alpha_s', 'alpha_d')
+%legend('p', 'sigma_s', 'sigma_d', 'alpha_s', 'alpha_d')
