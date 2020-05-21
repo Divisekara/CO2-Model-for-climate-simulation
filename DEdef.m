@@ -11,7 +11,7 @@ function [derivatives] = DEdef(t, D)
     k2  = 6.12*10^(-5);
     k3  = 0.997148;
     k4 = 6.79*10^(-2);
-    f = sourceFossilFuels(t);
+    f = sourceFossilFuels2(t);
     %%
  
     p = D(1);

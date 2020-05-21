@@ -55,11 +55,9 @@ alpha_d = 2.26;
 %%  
 %Question number 1
 t=2020;
-f(t) = sourceFossilFuels(t);
-subplot(4,1,1);
+f(t) = sourceFossilFuels1(t);
 %%
-domain = [1000 5000]; %
-
+domain = [1000 5000];
 %
 IC1 = 1.00; % p
 IC2 = 2.01; % sigma_s
@@ -71,20 +69,27 @@ IC = [IC1, IC2, IC3, IC4,IC5]; %
 
 [IVsol, DVsol] = ode23('DEdef', domain, IC); %
 
+CO2_array = DVsol(:,1);
+maximum_CO2 = max(CO2_array);
+maximum_year = CO2_array[maximum_CO2]+1000
+
 subplot(4,1,2);
-plot(IVsol, DVsol(:,1), 'k'),ylabel('p') % p
+plot(IVsol, DVsol(:,1), 'k'),ylabel('Patm CO2') % p
+ylim([0,5])
 
 subplot(4,1,3);
-plot(IVsol, DVsol(:,2), 'r'),ylabel('sigma_s') % sigma_s
+plot(IVsol, DVsol(:,2), 'r') % sigma_s
 hold on
-plot(IVsol, DVsol(:,3), 'b'),ylabel('sigma_d') % sigma_d
+plot(IVsol, DVsol(:,3), 'b'),ylabel('sigma') % sigma_d
+ylim([1.8,2.6])
 legend('deep', 'shallow')
 hold off
 
 subplot(4,1,4);
-plot(IVsol, DVsol(:,4), 'g'),ylabel('alpha_s') % alpha_s
+plot(IVsol, DVsol(:,4), 'g') % alpha_s
 hold on
-plot(IVsol, DVsol(:,5), 'm'),ylabel('alpha_d'),xlabel('t-years') % alpha_d
+plot(IVsol, DVsol(:,5), 'm'),ylabel('alpha'),xlabel('Date[yr,CE]')% alpha_d
+ylim([2,2.4])
 legend('deep', 'shallow')
 hold off
 
