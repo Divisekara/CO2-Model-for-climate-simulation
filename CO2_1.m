@@ -26,6 +26,7 @@ w   = 10^(-3);
 k1  = 2.19*10^(-4);
 k2  = 6.12*10^(-5);
 k3  = 0.997148;
+k_4 = 6.79*10^(-2);
 
 %Time interval is thousand years agon and few thousand years ahead
 t_interval = 1000:5000;
@@ -53,16 +54,31 @@ alpha_d = 2.26;
 
 %%  
 %Question number 1
-t=2;
-f(t) = sourceFossilFuels(t);
+%t=2;
+%f(t) = sourceFossilFuels(t);
 %%
+domain = [1000 5000]; %
 
+%
+IC1 = 1.00; % p
+IC2 = 2.01; % sigma_s
+IC3 = 2.23; % sigma_d
+IC4 = 2.20; % alpha_s
+IC5 = 2.26; % alpha_d
 
+IC = [IC1, IC2, IC3, IC4,IC5]; %
 
+[IVsol, DVsol] = ode23('DEdef', domain, IC); %
 
+plot(IVsol, DVsol(:,1), 'k') % p
 
+plot(IVsol, DVsol(:,2), 'r') % sigma_s
+plot(IVsol, DVsol(:,3), 'b') % sigma_d
+plot(IVsol, DVsol(:,4), 'g') % alpha_s
+plot(IVsol, DVsol(:,5), 'm') % alpha_d
 
-
+hold on
+legend('p', 'sigma_s', 'sigma_d', 'alpha_s', 'alpha_d')
 
 
 
