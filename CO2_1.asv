@@ -70,16 +70,20 @@ IC = [IC1, IC2, IC3, IC4,IC5]; %
 
 [IVsol, DVsol] = ode23('DEdef', domain, IC); %
 
-subplot(5,1,1);
-plot(IVsol, DVsol(:,1), 'k') % p
-hold on
-subplot(5,1,2);
-plot(IVsol, DVsol(:,2), 'r') % sigma_s
-subplot(5,1,3);
-plot(IVsol, DVsol(:,3), 'b') % sigma_d
-subplot(5,1,4);
-plot(IVsol, DVsol(:,4), 'g') % alpha_s
-subplot(5,1,5);
-plot(IVsol, DVsol(:,5), 'm'),xlabel('t-') % alpha_d
+subplot(3,1,1);
+plot(IVsol, DVsol(:,1), 'k'),ylabel('p') % p
 
+subplot(3,1,2);
+legend('sigma_s', 'sigma_d')
+plot(IVsol, DVsol(:,2), 'r'),ylabel('sigma_s') % sigma_s
+hold on
+plot(IVsol, DVsol(:,3), 'b'),ylabel('sigma_d') % sigma_d
+hold off
+
+subplot(3,1,3);
+legend('alpha_s', 'alpha_d')
+plot(IVsol, DVsol(:,4), 'g'),ylabel('alpha_s') % alpha_s
+hold on
+plot(IVsol, DVsol(:,5), 'm'),ylabel('alpha_d'),xlabel('t-years') % alpha_d
+hold off
 legend('p', 'sigma_s', 'sigma_d', 'alpha_s', 'alpha_d')

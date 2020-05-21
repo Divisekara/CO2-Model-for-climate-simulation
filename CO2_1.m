@@ -54,8 +54,9 @@ alpha_d = 2.26;
 
 %%  
 %Question number 1
-t=2;
+t=2020;
 f(t) = sourceFossilFuels(t);
+subplot(4,1,1);
 %%
 domain = [1000 5000]; %
 
@@ -70,15 +71,20 @@ IC = [IC1, IC2, IC3, IC4,IC5]; %
 
 [IVsol, DVsol] = ode23('DEdef', domain, IC); %
 
-subplot(5,1,1);
+subplot(4,1,2);
 plot(IVsol, DVsol(:,1), 'k'),ylabel('p') % p
-subplot(5,1,2);
-plot(IVsol, DVsol(:,2), 'r'),ylabel('sigma_s') % sigma_s
-subplot(5,1,3);
-plot(IVsol, DVsol(:,3), 'b'),ylabel('sigma_d') % sigma_d
-subplot(5,1,4);
-plot(IVsol, DVsol(:,4), 'g'),ylabel('alpha_s') % alpha_s
-subplot(5,1,5);
-plot(IVsol, DVsol(:,5), 'm'),ylabel('alpha_d'),xlabel('t-years') % alpha_d
 
-%legend('p', 'sigma_s', 'sigma_d', 'alpha_s', 'alpha_d')
+subplot(4,1,3);
+plot(IVsol, DVsol(:,2), 'r'),ylabel('sigma_s') % sigma_s
+hold on
+plot(IVsol, DVsol(:,3), 'b'),ylabel('sigma_d') % sigma_d
+legend('deep', 'shallow')
+hold off
+
+subplot(4,1,4);
+plot(IVsol, DVsol(:,4), 'g'),ylabel('alpha_s') % alpha_s
+hold on
+plot(IVsol, DVsol(:,5), 'm'),ylabel('alpha_d'),xlabel('t-years') % alpha_d
+legend('deep', 'shallow')
+hold off
+
