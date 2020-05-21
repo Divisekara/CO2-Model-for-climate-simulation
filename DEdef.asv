@@ -1,4 +1,4 @@
-function [derivatives] = DEdef(I, D)
+function [derivatives] = DEdef(t, D)
     %Independent variable = t
     
     d = 8.64;                %transfer time
@@ -10,7 +10,9 @@ function [derivatives] = DEdef(I, D)
     k1  = 2.19*10^(-4);
     k2  = 6.12*10^(-5);
     k3  = 0.997148;
-    f = 2000; %sourceFossilFuels(t);
+    k4 = 6.79*10^(-2);
+    
+    f(t) = sourceFossilFuels(t); %sourceFossilFuels(t);
     
     p = D(1);
     sigma_s = D(2);
@@ -18,7 +20,9 @@ function [derivatives] = DEdef(I, D)
     alpha_s = D(4); 
     alpha_d = D(5);
     
-    p_s = k4*2*h_2/(alpha_s - (sigma_s - (sigma_s^2))) ;
+    h_s = (sigma_s - sqrt(sigma_s^2 - k3*alpha_s*(2*sigma_s - alpha_s)))/k3;
+    c_s = (alpha_s - h_s)/2;
+    p_s = k4 * h_s^2 /c_s;
     
     derivatives=[   (p_s - p)/(d) + f/u_1 ;
                     ((sigma_d - sigma_s)*w - k1 - (p_s - p)/d*u_2)/v_s;
