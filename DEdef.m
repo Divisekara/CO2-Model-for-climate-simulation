@@ -11,11 +11,19 @@ function [p_derivative] = DEdef(I, D)
     k2  = 6.12*10^(-5);
     k3  = 0.997148;
     
-    p =
-    sigma_s =
-    sigma_d =
-    alpha_s =     
-    alpha_d =
+    p = D(1);
+    sigma_s = D(2);
+    sigma_d = D(3);
+    alpha_s = D(4); 
+    alpha_d = D(5);
+    
+    [
+        
+    
+    
+    
+    
+    
+    ]
 
-    p_derivative = (p_s - p)/(d) + f(t)/u_1; 
 end
