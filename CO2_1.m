@@ -52,13 +52,14 @@ alpha_d = 2.26;
 % c_s = (alpha_s - h_s)/2
 % p_s = k4 * h_s^2 /c_s
 
-%%  
-%Question number 1
+%% Question number 1
+
 t=2020;
 f(t) = sourceFossilFuels1(t);
-%%
+%% Question no.2
+
 domain = [1000 5000];
-%
+%Initial Conditions
 IC1 = 1.00; % p
 IC2 = 2.01; % sigma_s
 IC3 = 2.23; % sigma_d
@@ -68,10 +69,6 @@ IC5 = 2.26; % alpha_d
 IC = [IC1, IC2, IC3, IC4,IC5]; %
 
 [IVsol, DVsol] = ode23('DEdef', domain, IC); %
-
-CO2_array = DVsol(:,1);
-maximum_CO2 = max(CO2_array);
-maximum_year = CO2_array[maximum_CO2]+1000
 
 subplot(4,1,2);
 plot(IVsol, DVsol(:,1), 'k'),ylabel('Patm CO2') % p
