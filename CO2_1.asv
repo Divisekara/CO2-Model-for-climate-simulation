@@ -40,11 +40,9 @@ alpha_d = 2.26;
 %%
 
 %The rate of change of the five principal variables
-% p_derivative = (p_s - p)/(d) + f(t)/u_1 
+p_derivative = (p_s - p)/(d) + f(t)/u_1 
 % sigma_s_derivative = ( (sigma_d - sigma_s)*w - k1 - (p_s - p)/d*u_2)/v_s
-% sigma_d_derivative = ( k1
-
-- (sigma_d - sigma_s)*w )/v_d
+% sigma_d_derivative = ( k1 - (sigma_d - sigma_s)*w )/v_d
 % alpha_s_derivative = ((alpha_d - alpha_s)*w - k2)/v_s
 % alpha_d_derivative = (k2 - (alpha_d - alpha_s)*w)/v_d
 
@@ -56,8 +54,9 @@ alpha_d = 2.26;
 %%  
 %Question number 1
 t=2;
-f(t) = sourceFossilFuels(t);
+sourceFossilFuels(t)
 %%
+
 
 
 
