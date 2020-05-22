@@ -54,15 +54,10 @@ alpha_d = 2.26;
 % p_s = k4 * h_s^2 /c_s
 
 %% Question number 1
-figure(1);
 t=2020;
 f(t) = sourceFossilFuels1(t);
 
 %% Question no.2 A
-
-figure(2);
-subplot(4,1,1);
-f(t) = sourceFossilFuels2(t);
 
 domain = [1000 5000];
 %Initial Conditions

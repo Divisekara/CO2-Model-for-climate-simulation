@@ -1,12 +1,14 @@
-particular_year = round(particular_year);
+%% Question no.1
+particular_year = 
+
 years = [1000 1850 1950 1980 2050 2100 2120 2150 2225 2300 2500 5000];
 rates = [0.0 0.0 1.0 4.0 8.0 10.0 10.5 10.0 3.5 2.0 0.0 0.0];
-x = 1000:1:5000;
+tme_span = 1000:1:5000;
 
 %  nearest , linear , spline , pchip
-y = interp1(years,rates,x,'pchip'); %Using the interpolation
+y = interp1(years,rates,tme_span,'pchip'); %Using the interpolation
 figure(1);
-plot(x,y),title('Source Term: Fossil Fuels'),xlabel('time [years, CE]'),ylabel('source term, f(t)'),set(gca,'XMinorTick','on','YMinorTick','on')
+plot(tme_span,y),title('Source Term: Fossil Fuels'),xlabel('time [years, CE]'),ylabel('source term, f(t)'),set(gca,'XMinorTick','on','YMinorTick','on')
 ylim([-1,12])
 
 if 1000<particular_year && particular_year<5000

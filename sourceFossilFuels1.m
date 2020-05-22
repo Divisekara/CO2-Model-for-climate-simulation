@@ -8,7 +8,7 @@ function[particular_rate] = sourceFossilFuels1(particular_year)
     %  nearest , linear , spline , pchip
     y = interp1(years,rates,x,'pchip'); %Using the interpolation
     subplot(4,1,1);
-    plot(x,y),title('Source Term: Fossil Fuels'),xlabel('time [years, CE]'),ylabel('source term, f(t)'),set(gca,'XMinorTick','on','YMinorTick','on')
+    plot(years,rates,'o',x,y),title('Source Term: Fossil Fuels'),xlabel('time [years, CE]'),ylabel('source term, f(t)'),set(gca,'XMinorTick','on','YMinorTick','on')
     ylim([-1,12])
     
     if 1000<particular_year && particular_year<5000

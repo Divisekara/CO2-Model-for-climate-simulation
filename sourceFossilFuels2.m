@@ -1,5 +1,5 @@
 function[particular_rate] = sourceFossilFuels2(particular_year)
-%Function for the source term
+%This function only runs inside the DEdef function
     particular_year = round(particular_year);
     years = [1000 1850 1950 1980 2050 2100 2120 2150 2225 2300 2500 5000];
     rates = [0.0 0.0 1.0 4.0 8.0 10.0 10.5 10.0 3.5 2.0 0.0 0.0];
