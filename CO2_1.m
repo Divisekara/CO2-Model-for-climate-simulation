@@ -111,7 +111,13 @@ x_array = IVsol(200:500);
 plot(x_array, y_array , 'b'),ylabel('sigma_d') % sigma_d
 ylim([2.09,2.19])
 
-
+figure(4);
+%Defining the arrays for see a region contains a clear sawtooth
+y_array = DVsol(:,2);
+y_array = y_array(400:500);
+x_array = IVsol(400:500);
+plot(x_array, y_array , 'b'),ylabel('sigma_d') % sigma_d
+ylim([2.09,2.19])
 
 
 
