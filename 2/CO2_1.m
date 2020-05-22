@@ -125,7 +125,7 @@ ylim([2.09,2.19])
 %%%Oscillation type is 'traingular waves oscillation'
 %%
 
-% ode23, ode45, ode23s,
+
 
 
 
