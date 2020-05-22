@@ -40,7 +40,6 @@ alpha_s = 2.20;
 alpha_d = 2.26;
 
 %%
-
 %The rate of change of the five principal variables
 % p_derivative = (p_s - p)/(d) + f(t)/u_1 
 % sigma_s_derivative = ( (sigma_d - sigma_s)*w - k1 - (p_s - p)/d*u_2)/v_s
@@ -53,16 +52,16 @@ alpha_d = 2.26;
 % c_s = (alpha_s - h_s)/2
 % p_s = k4 * h_s^2 /c_s
 
-%% Question number 1
+%% Question number 1 %%%%%%%%%%%%%%%%%%%%
 figure(1);
 t=2020;
-f(t) = sourceFossilFuels1(t);
+f = sourceFossilFuels1(t)
 
-%% Question no.2 A
+%% Question no.2 A %%%%%%%%%%%%%%%%%%%%
 
 figure(2);
 subplot(4,1,1);
-f(t) = sourceFossilFuels2(t);
+f(t) = sourceFossilFuels1(t);
 
 domain = [1000 5000];
 %Initial Conditions
@@ -95,4 +94,17 @@ plot(IVsol, DVsol(:,5), 'm'),ylabel('alpha'),xlabel('Date[yr,CE]')% alpha_d
 ylim([2,2.4])
 legend('deep', 'shallow')
 hold off
+
+%% question 2 B. %%%%%%%%%%%%%%%%%%%%
+
+maximum_CO2 = 4.4360;
+
+
+
+
+
+
+
+
+
 
