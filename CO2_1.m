@@ -85,11 +85,11 @@ ylim([0,5])
 maximum_CO2_year = round(IVsol(idx))
 
 subplot(4,1,3);
-plot(IVsol, DVsol(:,2), 'r') % sigma_s
+plot(IVsol, DVsol(:,2), 'b') % sigma_s
 hold on
-plot(IVsol, DVsol(:,3), 'b'),ylabel('sigma') % sigma_d
+plot(IVsol, DVsol(:,3), 'r'),ylabel('sigma') % sigma_d
 ylim([1.8,2.6])
-legend('deep', 'shallow')
+legend('shallow', 'deep')
 hold off
 
 subplot(4,1,4);
@@ -97,10 +97,20 @@ plot(IVsol, DVsol(:,4), 'g') % alpha_s
 hold on
 plot(IVsol, DVsol(:,5), 'm'),ylabel('alpha'),xlabel('Date[yr,CE]')% alpha_d
 ylim([2,2.4])
-legend('deep', 'shallow')
+legend('shallow', 'deep')
 hold off
 
 %% Question 3 A
+%For the sawtooth, see the sigma in deep. magnify it, then you can see 
+%it clearly.
+figure(3);
+%Defining the arrays for see a region contains a clear sawtooth
+y_array = DVsol(:,2);
+y_array = y_array(200:500);
+x_array = IVsol(200:500);
+plot(x_array, y_array , 'b'),ylabel('sigma_d') % sigma_d
+ylim([2.09,2.19])
+
 
 
 
