@@ -1,6 +1,8 @@
 function [derivatives] = DEdef(t, D)
     %Independent variable = t
-
+    
+    
+    
     %%
     d = 8.64;                %transfer time
     u_1 = 4.95*10^2;

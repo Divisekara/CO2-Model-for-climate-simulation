@@ -55,7 +55,7 @@ alpha_d = 2.26;
 %% Question number 1 %%%%%%%%%%%%%%%%%%%%
 figure(1);
 t=2020;
-f = sourceFossilFuels1(t)
+f = sourceFossilFuels1(t);
 
 %% Question no.2 A %%%%%%%%%%%%%%%%%%%%
 
@@ -79,6 +79,10 @@ subplot(4,1,2);
 plot(IVsol, DVsol(:,1), 'k'),ylabel('Patm CO2') % p
 ylim([0,5])
 
+[val, idx] = max(DVsol(:,1))
+IVsol(idx)
+
+
 subplot(4,1,3);
 plot(IVsol, DVsol(:,2), 'r') % sigma_s
 hold on
@@ -101,7 +105,7 @@ maximum_CO2 = 4.4360;
 
 
 
-
+%%
 
 
 
