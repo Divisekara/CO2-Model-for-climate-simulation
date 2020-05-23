@@ -1,6 +1,5 @@
 clc,clear
 %% A CO2 model for climate simulation
-
 %% variables
 
 % five principal variables
@@ -74,7 +73,7 @@ IC5 = 2.26; % alpha_d
 
 IC = [IC1, IC2, IC3, IC4,IC5]; %
 
-[IVsol, DVsol] = ode23('DEdef', domain, IC); %
+[IVsol, DVsol] = ode23('DEdef', domain, IC);%
 
 subplot(4,1,2);
 plot(IVsol, DVsol(:,1), 'k'),ylabel('Patm CO2') % p
@@ -101,6 +100,7 @@ legend('shallow', 'deep')
 hold off
 
 %% Question 3 A
+
 %For the sawtooth, see the sigma in deep. magnify it, then you can see 
 %it clearly.
 
@@ -110,7 +110,7 @@ figure(3);
 y_array = DVsol(:,2);
 y_array = y_array(200:500);
 x_array = IVsol(200:500);
-plot(x_array, y_array , 'b'),ylabel('sigma_d') % sigma_d
+plot(x_array, y_array , 'b'),ylabel('sigma_s'),xlabel('Date[yr,CE]') % sigma_s
 ylim([2.09,2.19])
 
 %sawtooth 2
@@ -119,14 +119,91 @@ figure(4);
 y_array = DVsol(:,2);
 y_array = y_array(400:500);
 x_array = IVsol(400:500);
-plot(x_array, y_array , 'b'),ylabel('sigma_d') % sigma_d
+plot(x_array, y_array , 'b'),ylabel('sigma_s'),xlabel('Date[yr,CE]')  % sigma_d
 ylim([2.09,2.19])
 
 %%%Oscillation type is 'traingular waves oscillation'
+
+%%
+% ode23, ode45, ode23s, ode113, ode23s, ode15s
+%{
+fprintf('ode23: ')
+tic; [IVsol, DVsol] = ode23('DEdef', domain, IC); toc
+figure('Name','ode23');
+plot(IVsol, DVsol(:,2), 'b'),ylabel('t-years'),xlabel('Date[yr,CE]') 
+
+fprintf('ode15s: ')
+tic; [IVsol, DVsol] = ode15s('DEdef', domain, IC); toc 
+figure('Name','ode15s');
+plot(IVsol, DVsol(:,2), 'b'),ylabel('t-years'),xlabel('Date[yr,CE]')
+
+fprintf('ode23s: ')
+tic; [IVsol, DVsol] = ode23s('DEdef', domain, IC); toc
+figure('Name','ode23s');
+plot(IVsol, DVsol(:,2), 'b'),xlabel('Date[yr,CE]')
+
+fprintf('ode45: ')
+tic; [IVsol, DVsol] = ode45('DEdef', domain, IC); toc
+figure('Name','ode45');
+plot(IVsol, DVsol(:,2), 'b'),xlabel('Date[yr,CE]')
+
+fprintf('ode113: ')
+tic; [IVsol, DVsol] = ode113('DEdef', domain, IC); toc
+figure('Name','ode113');
+plot(IVsol, DVsol(:,2), 'b'),xlabel('Date[yr,CE]')
+
+fprintf('ode23t: ')
+tic; [IVsol, DVsol] = ode23t('DEdef', domain, IC); toc
+figure('Name','ode23t');
+plot(IVsol, DVsol(:,2), 'b'),xlabel('Date[yr,CE]')  % sigma_s
+
+fprintf('ode23tb: ')
+tic; [IVsol, DVsol] = ode23tb('DEdef', domain, IC); toc
+figure('Name','ode23tb');
+plot(IVsol, DVsol(:,2), 'b'),xlabel('Date[yr,CE]')  % sigma_s
+
+%According to the elapsed time we can compare the computational costs.
+%These five figures shows us how the ode solvers outputs
+%ode15s is the best for this problem considering the computational cost and
+%accuracy of the solution(no sawtooth)
+
+%}
+
 %%
 
-% ode23, ode45, ode23s,
+options = odeset('RelTol',1e-6,'AbsTol',1e-6,'stats','on')
 
+fprintf('ode23: ')
+figure('Name','ode23');
+tic; ode23('DEdef', domain, IC, options); toc
+disp(" ")
 
+fprintf('ode15s: ')
+figure('Name','ode15s');
+tic; ode15s('DEdef', domain, IC, options); toc 
+disp(" ")
 
+fprintf('ode23s: ')
+figure('Name','ode23s');
+tic; ode23s('DEdef', domain, IC, options); toc
+disp(" ")
 
+fprintf('ode45: ')
+figure('Name','ode45');
+tic; ode45('DEdef', domain, IC, options); toc
+disp(" ")
+
+fprintf('ode113: ')
+figure('Name','ode113');
+tic; ode113('DEdef', domain, IC, options); toc
+disp(" ")
+
+fprintf('ode23t: ')
+figure('Name','ode23t');
+tic; ode23t('DEdef', domain, IC, options); toc
+disp(" ")
+
+fprintf('ode23tb: ')
+figure('Name','ode23tb');
+tic; ode23tb('DEdef', domain, IC, options); toc
+disp(" ")
