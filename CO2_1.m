@@ -51,14 +51,15 @@ alpha_d = 2.26;
 % c_s = (alpha_s - h_s)/2
 % p_s = k4 * h_s^2 /c_s
 
+%{
 %% Question number 1 %%%%%%%%%%%%%%%%%%%%
 figure(1);
 t=2020;
 f = sourceFossilFuels1(t);
 disp('2020 source term value'),f
-
+%}
 %% Question no.2 A %%%%%%%%%%%%%%%%%%%%
-
+%{
 figure(2);
 subplot(4,1,1);
 f(t) = sourceFossilFuels1(t);
@@ -79,6 +80,7 @@ subplot(4,1,2);
 plot(IVsol, DVsol(:,1), 'k'),ylabel('Patm CO2') % p
 ylim([0,5])
 
+
 %%% Answer for the 
 [val, idx] = max(DVsol(:,1));
 maximum_CO2_year = round(IVsol(idx))
@@ -98,9 +100,10 @@ plot(IVsol, DVsol(:,5), 'm'),ylabel('alpha'),xlabel('Date[yr,CE]')% alpha_d
 ylim([2,2.4])
 legend('shallow', 'deep')
 hold off
+%}
 
 %% Question 3 A
-
+%{
 %For the sawtooth, see the sigma in deep. magnify it, then you can see 
 %it clearly.
 
@@ -123,7 +126,7 @@ plot(x_array, y_array , 'b'),ylabel('sigma_s'),xlabel('Date[yr,CE]')  % sigma_d
 ylim([2.09,2.19])
 
 %%%Oscillation type is 'traingular waves oscillation'
-
+%}
 %%
 % ode23, ode45, ode23s, ode113, ode23s, ode15s
 %{
@@ -170,21 +173,21 @@ plot(IVsol, DVsol(:,2), 'b'),xlabel('Date[yr,CE]')  % sigma_s
 %}
 
 %%
-
+%{
 options = odeset('RelTol',1e-6,'AbsTol',1e-6,'stats','on')
 
 fprintf('ode23: ')
-figure('Name','ode23');
+figure('Name','ode23','NumberTitle','off');
 tic; ode23('DEdef', domain, IC, options); toc
 disp(" ")
 
 fprintf('ode15s: ')
-figure('Name','ode15s');
+figure('Name','ode15s','NumberTitle','off');
 tic; ode15s('DEdef', domain, IC, options); toc 
 disp(" ")
 
 fprintf('ode23s: ')
-figure('Name','ode23s');
+figure('Name','ode23s','NumberTitle','off');
 tic; ode23s('DEdef', domain, IC, options); toc
 disp(" ")
 
@@ -194,16 +197,23 @@ tic; ode45('DEdef', domain, IC, options); toc
 disp(" ")
 
 fprintf('ode113: ')
-figure('Name','ode113');
+figure('Name','ode113','NumberTitle','off');
 tic; ode113('DEdef', domain, IC, options); toc
 disp(" ")
 
 fprintf('ode23t: ')
-figure('Name','ode23t');
+figure('Name','ode23t','NumberTitle','off');
 tic; ode23t('DEdef', domain, IC, options); toc
 disp(" ")
 
 fprintf('ode23tb: ')
-figure('Name','ode23tb');
+figure('Name','ode23tb','NumberTitle','off');
 tic; ode23tb('DEdef', domain, IC, options); toc
 disp(" ")
+%}
+
+scenarios(2900)
+
+
+
+
