@@ -40,21 +40,15 @@ domain = [1000 5000]; %time domain for the ODEs, independant variable
 
 IC = [IC_p, IC_sigma_S, IC_sigma_d, IC_alpha_s,IC_alpha_d]; %Taking initial conditions into a vector
 
-%%%Intializing is over
 
-
-
-%% %%%%%%  Question number 1  %%%%%%%%%%%%%%%%%%%%
+%% Question number 1
 figure('Name', 'Question no.1 graph','NumberTitle','off');
 t=2020;
 f = sourceFossilFuels1(t); %This function iinterpolates the given points and output the relevant value for the year 2020.
 disp('2020 source term value'),f
 
-%%%Question no.1 is over
 
-
-
-%% %%%%%%  Question no.2) A)  %%%%%%%%%%%%%%%%%%%%
+%% Question no.2) A)
 t=2020;
 figure('Name', 'Question 2 graphs: trends','NumberTitle','off');
 subplot(4,1,1);
@@ -89,10 +83,6 @@ hold off
 [val, idx] = max(DVsol(:,1));
 maximum_CO2_year = round(IVsol(idx)) 
 
-%%% Question no.2 is over
-
-
-
 %% Question 3) A)
 
 %For the sawtooth, see the sigma in deep ocean(total dissolved carbon concentration in the deep ocean)
@@ -120,9 +110,6 @@ plot(x_array, y_array , 'b'),ylabel('sigma_s'),xlabel('Date[yr,CE]')  % sigma_d
 ylim([2.09,2.19])
 
 %%%%%%%% Oscillation type is 'traingular waves oscillation' %%%%%%%%'
-
-
-
 
 %% Question no. 3) B) first part
 % ode23, ode45, ode23s, ode113, ode23s, ode15s, ode23tb
@@ -227,10 +214,6 @@ figure('Name','ode23tb','NumberTitle','off');
 tic; ode23tb('DEdef', domain, IC, options); toc %Calculating the elpased time
 disp(" ")
 
-%%%Question no.3 over
-
-
-
 %% Question no 4
 [rate1, rate2, rate3]=scenarios(2075);
 
@@ -238,7 +221,5 @@ disp(" ")
 fprintf('nominal rate:'), rate1
 fprintf('Trump wins :'), rate2
 fprintf('Negative carbo :'), rate3
-
-%%Question no.4 over
 
 %%
